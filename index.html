@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pack Succès Ecom - DigitBiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="short icon" href="image/pack.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+        /* Nouvelle palette de couleurs, adaptée pour le pack */
+        :root {
+            --primary-color: #e74c3c; /* Rouge pour les accents et les boutons */
+            --secondary-color: #4b6cb7; /* Bleu pour les titres */
+            --tertiary-color: #2c3e50; /* Bleu foncé, légèrement plus sombre */
+            --light-bg: #f0f2f5; /* Fond gris très clair */
+            --text-color-dark: #333333; /* Texte sombre */
+            --text-color-light: #ffffff; /* Texte clair */
+            --yellow-promo: #f1c40f; /* Jaune pour le prix */
+            --font-main: 'Poppins', sans-serif;
+            --font-secondary: 'Montserrat', sans-serif;
+            --font-testimonials: 'Playfair Display', serif;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--light-bg);
+            color: var(--text-color-dark);
+        }
+        
+        h1, h2, h3 {
+            font-family: var(--font-secondary);
+            font-weight: bold;
+        }
+
+        .header-top {
+            background-color: var(--tertiary-color);
+            color: var(--text-color-light);
+            padding: 10px 0;
+            font-size: 0.9rem;
+        }
+        .header-top .social-icons a {
+            color: var(--text-color-light);
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+        .header-top .social-icons a:hover {
+            color: var(--primary-color);
+        }
+        .contact-btn {
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
+            font-weight: bold;
+            border-radius: 0;
+            padding: 8px 25px;
+            text-transform: uppercase;
+        }
+        .navbar-custom {
+            background-color: var(--light-bg);
+            border-bottom: 1px solid #dee2e6;
+        }
+        .navbar-custom .navbar-brand {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .navbar-custom .nav-link {
+            color: var(--text-color-dark);
+            text-transform: uppercase;
+            font-weight: 500;
+            margin: 0 15px;
+            transition: color 0.3s, border-bottom 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-color-light);
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero-section h1 {
+            color: var(--text-color-light);
+            font-size: 2.5rem; /* Ajusté pour mieux s'adapter */
+        }
+        .hero-section .lead {
+            color: #d1d5e0;
+            font-size: 1.15rem;
+        }
+        .cta-btn-main {
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
+            font-weight: bold;
+            padding: 15px 40px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            border: none;
+        }
+        .cta-btn-main:hover {
+            background-color: #c0392b;
+            transform: scale(1.05);
+        }
+        .price-box {
+            background-color: var(--yellow-promo);
+            color: var(--text-color-dark);
+            padding: 15px 30px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .price-box .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+            line-height: 1;
+        }
+        .price-box .old-price {
+            text-decoration: line-through;
+            font-size: 1rem;
+            color: rgba(0,0,0,0.7);
+        }
+        .pack-image-container {
+            position: relative;
+            z-index: 10;
+        }
+        .pack-image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+
+        .pack-content-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+        .pack-content-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 40px;
+        }
+        .pack-content-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .pack-content-section li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        .pack-content-section li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .pack-content-section .cta-btn-small {
+            background-color: var(--secondary-color);
+            color: var(--text-color-light);
+            font-weight: bold;
+            padding: 10px 30px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            border: none;
+        }
+        .pack-content-section .cta-btn-small:hover {
+            background-color: #3b5998;
+            transform: scale(1.05);
+        }
+
+
+        .mid-section-bg {
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920&h=1080');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            color: var(--text-color-light);
+            text-align: center;
+        }
+        .testimonials-section-improved h2, .why-choose-section h2 {
+            color: var(--secondary-color);
+        }
+        .testimonial-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .testimonial-card blockquote p {
+            font-family: var(--font-testimonials);
+            font-size: 1.25rem;
+            font-style: italic;
+        }
+        .testimonial-card .star-rating i {
+            color: #ffc107;
+        }
+        .section-separator {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(75, 108, 183, 0.75), rgba(0, 0, 0, 0));
+            margin: 60px 0;
+        }
+
+
+        .why-exceptional-section {
+            padding: 60px 0;
+            background-color: var(--light-bg);
+        }
+        .why-exceptional-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 40px;
+        }
+        .why-exceptional-section .icon-list li {
+            margin-bottom: 20px;
+        }
+        .why-exceptional-section .icon-list i {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+
+
+        .cta-finale {
+            background-color: var(--tertiary-color);
+            color: var(--text-color-light);
+        }
+        .cta-finale h2 {
+            color: var(--primary-color);
+        }
+        .cta-finale .lead {
+            color: #d1d5e0;
+        }
+        #countdown div {
+            flex-grow: 1;
+        }
+
+        .payment-logos img {
+            height: 30px;
+            margin: 0 10px;
+            opacity: 0.8;
+            filter: grayscale(100%);
+            transition: all 0.3s;
+        }
+        .payment-logos img:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+    
+        /* Styles pour le carrousel sur mobile */
+        @media (max-width: 767.98px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            .carousel-control-prev,
+            .carousel-control-next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 5; 
+                width: auto;
+                opacity: 0.7;
+                background-color: rgba(0, 0, 0, 0.2);
+                border-radius: 50%;
+                padding: 10px;
+            }
+            .carousel-control-prev {
+                left: 0;
+            }
+            .carousel-control-next {
+                right: 0;
+            }
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                display: inline-block;
+                width: 2rem;
+                height: 2rem;
+                background-repeat: no-repeat;
+                background-position: 50%;
+                background-size: 100% 100%;
+            }
+        }
+        
+        @media (max-width: 991.98px) {
+            .pack-content-section .row {
+                flex-direction: column;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top d-none d-md-block">
+            <div class="container">
+                <div class="d-flex justify-content-end align-items-center">
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                    <a href="https://wa.me/2250705759223" class="btn contact-btn ms-4">Contact</a>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+            <div class="container">
+                <a class="navbar-brand" href="#">DigitBiz</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link active" href="">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#pack">Le Pack</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#testimonials">Témoignages</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section" id="pack">
+        <div class="container" data-aos="fade-up">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0 text-md-start">
+                    <h1 class="display-3">Pack Succès Ecom - Accès à Vie avec Droit de Revente</h1>
+                    <p class="lead mt-3">Obtenez un accès à vie à plus de 350 formations et logiciels, et le droit de les revendre pour créer votre propre source de revenus.</p>
+                    
+                    <div class="price-box" data-aos="zoom-in" data-aos-delay="300">
+                        <span class="old-price">90.000 FCFA</span>
+                        <span class="price">15.000 FCFA</span>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div> <br> <br>
+        <div class="container" data-aos="zoom-in">
+            <h2 class="mb-4">Attention : cette offre disparaît bientôt !</h2>
+            <p class="lead mt-3">Saisissez l'équivalent de mois de coaching et de formation. Ne laissez pas passer votre chance de changer votre vie, de diversifier vos revenus et de maîtriser les compétences qui font la différence.</p>
+            
+            <div id="countdown" class="d-flex justify-content-center my-4">
+                <div class="p-3 text-white bg-danger rounded mx-2">
+                    <span id="days" class="d-block h3 mb-0">00</span>
+                    <small>Jours</small>
+                </div>
+                <div class="p-3 text-white bg-danger rounded mx-2">
+                    <span id="hours" class="d-block h3 mb-0">00</span>
+                    <small>Heures</small>
+                </div>
+                <div class="p-3 text-white bg-danger rounded mx-2">
+                    <span id="minutes" class="d-block h3 mb-0">00</span>
+                    <small>Minutes</small>
+                </div>
+                <div class="p-3 text-white bg-danger rounded mx-2">
+                    <span id="seconds" class="d-block h3 mb-0">00</span>
+                    <small>Secondes</small>
+                </div>
+            </div>
+            
+            <a href="https://rqpheawc.mychariow.com/prd_u8gykc" class="btn cta-btn-main btn-lg mt-4">Commandez maintenant !</a>
+        </div>
+    </section>
+
+    <hr class="section-separator" />
+
+    <section class="pack-content-section">
+        <div class="container" data-aos="fade-up">
+            <h2 class="text-center mb-5">Les 30 compétences les plus recherchées en 2025</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-right">
+                    <ul class="text-start">
+                        <li>✅ Programmation & IA</li>
+                        <li>✅ E-commerce & Trading</li>
+                        <li>✅ Facebook Ads & Marketing Digital</li>
+                        <li>✅ Graphisme & Montage Vidéo</li>
+                        <li>✅ Création de Site Web & Comptabilité</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up">
+                    <ul class="text-start">
+                        <li>✅ Tunnels de ventes</li>
+                        <li>✅ ChatGPT</li>
+                        <li>✅ Data Analyst</li>
+                        <li>✅ Excel VBA</li>
+                        <li>✅ Cybersécurité & Data Science</li>
+                    </ul>
+                </div>
+                <div class="col-md-12 col-lg-4 mb-4" data-aos="fade-left">
+                    <ul class="text-start">
+                        <li>✅ 200 Livres Audio</li>
+                        <li>✅ 2000 PDF</li>
+                        <li>✅ 31 Business Plans prêts à l’emploi</li>
+                        <li>✅ +15 millions d'éléments graphiques</li>
+                        <li>✅ Logiciels précrackés</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                    <a href="https://rqpheawc.mychariow.com/prd_u8gykc" class="btn cta-btn-small btn-lg">Découvrez le contenu intégral</a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-separator" />
+    
+    <section class="why-exceptional-section text-center">
+        <div class="container" data-aos="fade-up">
+            <h2 class="mb-4">Pourquoi ce pack est exceptionnel ?</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <ul class="list-unstyled icon-list text-start">
+                        <li data-aos="fade-right" data-aos-delay="100"><i class="bi bi-currency-dollar"></i> **Droit de revente inclus :** rentabilisez votre investissement dès le premier client.</li>
+                        <li data-aos="fade-right" data-aos-delay="200"><i class="bi bi-infinity"></i> **Accès à vie :** formez-vous à votre rythme, sans limite de temps.</li>
+                        <li data-aos="fade-right" data-aos-delay="300"><i class="bi bi-fire"></i> **Offre rare :** un prix exceptionnel de 15.000 FCFA.</li>
+                        <li data-aos="fade-right" data-aos-delay="400"><i class="bi bi-people"></i> **Plus de 550 personnes satisfaites** l’ont déjà saisi.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-separator" />
+
+    <section class="mid-section-bg d-flex align-items-center justify-content-center">
+        <div class="container text-center" data-aos="zoom-in">
+            <h2 class="display-5 text-white">"Arrête de rêver ton succès. Commence à le construire."</h2>
+        </div>
+    </section>
+
+    <hr class="section-separator" />
+
+    <section id="testimonials" class="testimonials-section-improved text-center">
+    <div class="container" data-aos="fade-up">
+        <h2 class="text-center mb-5">Ils ont transformé leur vie !</h2>
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Avis 1"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Avis 2"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Avis 3"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="3" aria-label="Avis 4"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="4" aria-label="Avis 5"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="5" aria-label="Avis 6"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="testimonial-card" data-aos="zoom-in">
+                        <div class="star-rating my-2">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"Je ne pensais pas que ça irait aussi vite: formation achetée lundi, rentabilisée vendredi."</p>
+                        </blockquote>
+                        <footer class="blockquote-footer mt-2">Christ AKA, développeur d'application</footer>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="testimonial-card" data-aos="zoom-in">
+                        <div class="star-rating my-2">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"Le contenu est tellement riche que même après l'avoir revendu, je continue de m'en servir pour progresser."</p>
+                        </blockquote>
+                        <footer class="blockquote-footer mt-2">Paré Joam, expert en e-commerce</footer>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="testimonial-card" data-aos="zoom-in">
+                        <div class="star-rating my-2">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"Franchement, j'ai déjà amorti mon investissement ! J'ai partagé à quelques collègues et j'ai déjà fait plus que doubler ma mise."</p>
+                        </blockquote>
+                        <footer class="blockquote-footer mt-2">Kalida, gérante de boutique en ligne</footer>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="testimonial-card" data-aos="zoom-in">
+                        <div class="star-rating my-2">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"Le contenu est clair, pratique et directement applicable. Je l'utilise tous les jours dans ma gestion comptable."</p>
+                        </blockquote>
+                        <footer class="blockquote-footer mt-2">Atsain, gérant de boutique en ligne</footer>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="testimonial-card" data-aos="zoom-in">
+                        <div class="star-rating my-2">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"J'ai revendu la formation à 8 amis entrepreneurs, résultat : 120.000F en poche !"</p>
+                        </blockquote>
+                        <footer class="blockquote-footer mt-2">Moriel, Pharmacien</footer>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="testimonial-card" data-aos="zoom-in">
+                        <div class="star-rating my-2">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"Grâce à ce programme, j'ai non seulement appris la comptabilité, mais aussi généré un revenu supplémentaire."</p>
+                        </blockquote>
+                        <footer class="blockquote-footer mt-2">Chrys M'GBESSO, Pharmacien</footer>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Précédent</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Suivant</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+    <hr class="section-separator" />
+
+    <section id="contact" class="why-choose-section">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Pourquoi choisir DigitBiz ?</h2>
+                    <ul class="list-unstyled">
+                        <li data-aos="fade-right"><i class="bi bi-box-arrow-in-down-right icon-list"></i> Livraison instantanée des produits après l'achat.</li>
+                        <li data-aos="fade-right" data-aos-delay="100"><i class="bi bi-check-circle icon-list"></i> Formations pratiques et orientées résultats.</li>
+                        <li data-aos="fade-right" data-aos-delay="200"><i class="bi bi-lock icon-list"></i> Paiements 100% sécurisés.</li>
+                        <li data-aos="fade-right" data-aos-delay="300"><i class="bi bi-chat-dots icon-list"></i> Support client disponible et réactif.</li>
+                        <li data-aos="fade-right" data-aos-delay="400"><i class="bi bi-award icon-list"></i> Notre seul objectif : votre réussite concrète.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Ce que vous y trouverez en plus :</h2>
+                    <h3 class="h5" data-aos="fade-left">Ressources digitales prêtes à l'emploi</h3>
+                    <p data-aos="fade-left" data-aos-delay="100">Modèles de business plan, fichiers de gestion, scripts de prospection, templates Canva, visuels pour réseaux sociaux, checklists et guides pratiques.</p>
+                    <h3 class="h5 mt-4" data-aos="fade-left" data-aos-delay="200">Outils et accès exclusifs</h3>
+                    <p data-aos="fade-left" data-aos-delay="300">Bots IA personnalisés pour booster votre activité, accès à une base de fournisseurs fiables, astuces pour automatiser votre marketing et vos ventes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-separator" />
+
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p>&copy; 2025 DigitBiz. Tous droits réservés.</p>
+            
+            <div class="mt-3">
+                <a href="#" class="text-white mx-2">Mentions légales</a> |
+                <a href="#" class="text-white mx-2">Conditions de vente</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init();
+
+    // Définir la date de fin : maintenant + 48 heures
+    const endDate = new Date();
+    endDate.setHours(endDate.getHours() + 48);
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = endDate.getTime() - now;
+
+        if (distance <= 0) {
+            document.getElementById("days").innerText = "00";
+            document.getElementById("hours").innerText = "00";
+            document.getElementById("minutes").innerText = "00";
+            document.getElementById("seconds").innerText = "00";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = String(days).padStart(2, '0');
+        document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+        document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+        document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+    }
+
+    // Mettre à jour le compte à rebours toutes les secondes
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+    </script>
+</body>
+</html>
